@@ -21,4 +21,10 @@ public class QuantityMeasurement implements QuantityMeasurementConstant {
         QuantityMeasurement that = (QuantityMeasurement) o;
         return Double.compare( that.value, value ) == 0;
     }
+    public boolean compareUnits(QuantityMeasurement measurement) {
+        if (this.unit.equals( Unit.FEET ) && measurement.unit.equals( Unit.INCH )) {
+            return this.value * FEET_INCH == measurement.value;
+        }
+        return false;
+    }
 }
