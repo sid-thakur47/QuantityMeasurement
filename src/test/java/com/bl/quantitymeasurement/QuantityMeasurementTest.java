@@ -60,5 +60,12 @@ public class QuantityMeasurementTest {
         QuantityMeasurement secondMeasurement = new QuantityMeasurement( QuantityMeasurement.Unit.FEET, 0 );
         Assert.assertEquals( firstMeasurement, secondMeasurement );
     }
+    @Test
+    public void givenFeetAndInch_WhenComparing_ShouldReturnTrue() {
+        QuantityMeasurement feet = new QuantityMeasurement( QuantityMeasurement.Unit.FEET, 1 );
+        QuantityMeasurement inch = new QuantityMeasurement( QuantityMeasurement.Unit.INCH, 12 );
+        boolean compare = feet.compareUnits( inch );
+        Assert.assertTrue( compare );
+    }
 }
 
