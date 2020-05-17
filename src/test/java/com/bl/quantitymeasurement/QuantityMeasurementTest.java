@@ -81,5 +81,12 @@ public class QuantityMeasurementTest {
         boolean compare = inch.compareUnits( feet );
         Assert.assertFalse( compare );
     }
+    @Test
+    public void givenInchToFeet_WhenComparing_ShouldReturnTrue() {
+        QuantityMeasurement feet = new QuantityMeasurement( QuantityMeasurement.Unit.FEET, 1 );
+        QuantityMeasurement inch = new QuantityMeasurement( QuantityMeasurement.Unit.INCH, 12 );
+        boolean compare = inch.compareUnits( feet );
+        Assert.assertTrue( compare );
+    }
 }
 

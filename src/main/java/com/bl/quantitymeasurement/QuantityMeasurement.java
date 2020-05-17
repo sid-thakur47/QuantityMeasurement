@@ -25,6 +25,9 @@ public class QuantityMeasurement implements QuantityMeasurementConstant {
         if (this.unit.equals( Unit.FEET ) && measurement.unit.equals( Unit.INCH )) {
             return this.value * FEET_INCH == measurement.value;
         }
+        if (this.unit.equals( Unit.INCH ) && measurement.unit.equals( Unit.FEET )) {
+            return this.value / FEET_INCH == measurement.value;
+        }
         return false;
     }
 }
