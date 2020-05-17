@@ -37,5 +37,10 @@ public class QuantityMeasurementTest {
         boolean checkNull = quantityMeasurement.equals( null );
         Assert.assertEquals( false, checkNull );
     }
+    @Test
+    public void givenInch_When_SameReference_ShouldReturnTrue() {
+        QuantityMeasurement reference = new QuantityMeasurement();
+        Assert.assertEquals( reference, quantityMeasurement );
+    }
 }
 
