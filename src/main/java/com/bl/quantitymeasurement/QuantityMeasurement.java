@@ -1,19 +1,24 @@
 package com.bl.quantitymeasurement;
 
-public class QuantityMeasurement {
-    int feet;
+import com.bl.quantitymeasurement.constant.QuantityMeasurementConstant;
+
+public class QuantityMeasurement implements QuantityMeasurementConstant {
+    public Unit unit;
+    double value;
 
     public QuantityMeasurement() {
     }
 
-    public QuantityMeasurement(int feet) {
-        this.feet = feet;
+    public QuantityMeasurement(Unit unit, double value) {
+       this.value=value;
+       this.unit = unit;
     }
-    @Override
+
+     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         QuantityMeasurement that = (QuantityMeasurement) o;
-        return feet == that.feet;
+        return Double.compare( that.value, value ) == 0;
     }
 }
