@@ -42,5 +42,17 @@ public class QuantityMeasurementTest {
         QuantityMeasurement reference = new QuantityMeasurement();
         Assert.assertEquals( reference, quantityMeasurement );
     }
+    @Test
+    public void givenZeroInch_When_ZeroInch_ShouldReturnEqual() {
+        QuantityMeasurement firstMeasurement = new QuantityMeasurement( QuantityMeasurementConstant.Unit.INCH, 0 );
+        QuantityMeasurement secondMeasurement = new QuantityMeasurement( QuantityMeasurementConstant.Unit.INCH, 0 );
+        Assert.assertEquals( firstMeasurement, secondMeasurement );
+    }
+    @Test
+    public void givenInch_When_SameValue_ShouldReturnEqual() {
+        QuantityMeasurement firstMeasurement = new QuantityMeasurement( QuantityMeasurement.Unit.INCH, 50.0 );
+        QuantityMeasurement secondMeasurement = new QuantityMeasurement( QuantityMeasurement.Unit.INCH, 50.0 );
+        Assert.assertEquals( firstMeasurement, secondMeasurement );
+    }
 }
 
