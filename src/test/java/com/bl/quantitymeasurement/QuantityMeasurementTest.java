@@ -54,5 +54,11 @@ public class QuantityMeasurementTest {
         QuantityMeasurement secondMeasurement = new QuantityMeasurement( QuantityMeasurement.Unit.INCH, 50.0 );
         Assert.assertEquals( firstMeasurement, secondMeasurement );
     }
+    @Test
+    public void givenZeroFeetAndZeroInch_ShouldReturnEqual() {
+        QuantityMeasurement firstMeasurement = new QuantityMeasurement( QuantityMeasurement.Unit.INCH, 0 );
+        QuantityMeasurement secondMeasurement = new QuantityMeasurement( QuantityMeasurement.Unit.FEET, 0 );
+        Assert.assertEquals( firstMeasurement, secondMeasurement );
+    }
 }
 
