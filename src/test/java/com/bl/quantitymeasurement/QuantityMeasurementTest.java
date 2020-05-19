@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class QuantityMeasurementTest implements QuantityMeasurementConstant {
     Length length = new Length();
-    QuantityMeasurement quantityMeasurement=new QuantityMeasurement();
+    QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
 
     @Test
     public void givenZeroFeet_When_ZeroFeet_ShouldReturnZero() {
@@ -104,5 +104,11 @@ public class QuantityMeasurementTest implements QuantityMeasurementConstant {
         boolean compare = yard.compareUnits( inch );
         Assert.assertTrue( compare );
     }
-
+    @Test
+    public void givenInchAndOneYard_WhenComparing_ShouldReturnTrue() {
+        Length inch = new Length( Length.Unit.INCH, 36 );
+        Length yard = new Length( Length.Unit.YARD, 1 );
+        boolean compare = yard.compareUnits( inch );
+        Assert.assertTrue( compare );
+    }
 }
