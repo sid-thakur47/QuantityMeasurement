@@ -19,6 +19,9 @@ public class Length extends QuantityMeasurement implements QuantityMeasurementCo
         if (this.unit.equals( Unit.FEET ) && measurement.unit.equals( Unit.YARD )) {
             return this.value / FEET_TO_YARD == measurement.value;
         }
+        if (this.unit.equals( Unit.YARD ) && measurement.unit.equals( Unit.INCH )) {
+            return this.value * YARD_TO_INCH == measurement.value;
+        }
         return false;
     }
 }
