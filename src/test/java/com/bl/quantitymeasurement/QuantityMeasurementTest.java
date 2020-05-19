@@ -227,4 +227,12 @@ public class QuantityMeasurementTest implements QuantityMeasurementConstant {
         boolean compare = kiloGram.compareUnits( gram );
         Assert.assertTrue( compare );
     }
+    @Test
+    public void givenOneTonAndKiloGram_WhenCompared_ShouldReturnTrue() {
+        Weight ton = new Weight( Unit.TON, 1 );
+        Weight gram = new Weight( Unit.KILO_GRAM, 907 );
+        boolean compare = gram.compareUnits( ton );
+        Assert.assertTrue( compare );
+    }
+
 }
