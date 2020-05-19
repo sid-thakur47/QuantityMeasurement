@@ -8,6 +8,7 @@ import org.junit.Test;
 
 public class QuantityMeasurementTest implements QuantityMeasurementConstant {
     Length length = new Length();
+    Volume volume=new Volume();
     QuantityMeasurement quantityMeasurement = new QuantityMeasurement();
 
     @Test
@@ -161,5 +162,12 @@ public class QuantityMeasurementTest implements QuantityMeasurementConstant {
         Volume milliLitre = new Volume( Unit.MILLILITERS, 2000 );
         boolean compare = litre.compareUnits( milliLitre );
         Assert.assertTrue( compare );
+    }
+    @Test
+    public void givenOneGallonAndTLitre_WhenAdded_ShouldReturnTrue() {
+        Volume gallon = new Volume( Unit.GALLON, 1 );
+        Volume litre = new Volume( Unit.LITRES, 3.78 );
+        double addition = volume.addVolume( gallon, litre );
+        Assert.assertEquals( 7.56, addition, .0 );
     }
 }
