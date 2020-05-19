@@ -2,6 +2,7 @@ package com.bl.quantitymeasurement;
 
 import com.bl.quantitymeasurement.constant.QuantityMeasurementConstant;
 import com.bl.quantitymeasurement.units.Length;
+import com.bl.quantitymeasurement.units.Temperature;
 import com.bl.quantitymeasurement.units.Volume;
 import com.bl.quantitymeasurement.units.Weight;
 import org.junit.Assert;
@@ -12,6 +13,7 @@ public class QuantityMeasurementTest implements QuantityMeasurementConstant {
     Length length;
     Volume volume;
     Weight weight;
+    Temperature temperature;
     QuantityMeasurement quantityMeasurement;
 
     @Before
@@ -19,6 +21,7 @@ public class QuantityMeasurementTest implements QuantityMeasurementConstant {
         length = new Length();
         volume = new Volume();
         weight = new Weight();
+        temperature=new Temperature();
         quantityMeasurement = new QuantityMeasurement();
     }
 
@@ -119,10 +122,9 @@ public class QuantityMeasurementTest implements QuantityMeasurementConstant {
 
     @Test
     public void givenInchToFeet_WhenComparing_ShouldReturnTrue() {
-        Length feet = new Length( Unit.FEET, 1 );
-        Length inch = new Length( Unit.INCH, 12 );
-        boolean compare = feet.compareUnits( inch );
-        Assert.assertTrue( compare );
+        QuantityMeasurement feet = new QuantityMeasurement( Unit.FEET, 1 );
+        QuantityMeasurement inch = new QuantityMeasurement( Unit.INCH, 12 );
+        Assert.assertEquals( feet,inch );
     }
 
     @Test
@@ -241,5 +243,19 @@ public class QuantityMeasurementTest implements QuantityMeasurementConstant {
         Weight grams = new Weight( Unit.GRAMS, 1000 );
         double addition = weight.addWeight( ton, grams );
         Assert.assertEquals( 1001, addition, 0.0 );
+    }
+    @Test
+    public void givenFahrenheitAndCelsius_WhenCompared_ShouldReturnTrue() {
+        Temperature fahrenheit = new Temperature( Unit.FAHRENHEIT, 212 );
+        Temperature celsius = new Temperature( Unit.CELSIUS, 100 );
+        boolean compare = fahrenheit.compareUnits( celsius );
+        Assert.assertTrue( compare );
+    }
+    @Test
+    public void givenFahrenheitAndCelsius_WhenCompared_ShouldReturnTrue1() {
+        Temperature fahrenheit = new Temperature( Unit.FAHRENHEIT, 212 );
+        Temperature celsius = new Temperature( Unit.CELSIUS, 100 );
+        boolean compare = celsius.compareUnits( fahrenheit );
+        Assert.assertTrue( compare );
     }
 }
