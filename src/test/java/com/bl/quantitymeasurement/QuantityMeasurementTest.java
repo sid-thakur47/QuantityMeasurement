@@ -139,4 +139,11 @@ public class QuantityMeasurementTest implements QuantityMeasurementConstant {
         double addition = length.addLength( feet, inch );
         Assert.assertEquals( 14, addition, 0.0 );
     }
+    @Test
+    public void givenTwoInchAndCentimeter_WhenAdded_ShouldReturnTrue() {
+        Length inch = new Length( Unit.INCH, 4 );
+        Length centiMeter = new Length( Unit.CENTIMETER, 5 );
+        double addition = length.addLength( inch, centiMeter );
+        Assert.assertEquals( 6, addition, 0.0 );
+    }
 }
