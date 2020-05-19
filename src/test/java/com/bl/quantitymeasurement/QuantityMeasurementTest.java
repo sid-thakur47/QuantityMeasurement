@@ -111,4 +111,11 @@ public class QuantityMeasurementTest implements QuantityMeasurementConstant {
         boolean compare = yard.compareUnits( inch );
         Assert.assertTrue( compare );
     }
+    @Test
+    public void givenFeetAndOneYardAndFeet_WhenComparing_ShouldReturnTrue() {
+        Length yard = new Length( Length.Unit.YARD, 1 );
+        Length feet = new Length( Length.Unit.FEET, 3 );
+        boolean compare = feet.compareUnits( yard );
+        Assert.assertTrue( compare );
+    }
 }
