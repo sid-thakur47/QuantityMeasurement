@@ -27,4 +27,20 @@ public class Length extends QuantityMeasurement implements QuantityMeasurementCo
         }
         return false;
     }
+    public double getLength(Length measurement) {
+        switch (measurement.unit) {
+            case INCH:
+                return measurement.value;
+            case FEET:
+                return measurement.value * FEET_INCH;
+            case CENTIMETER:
+                return measurement.value / INCH_CENTIMETER;
+        }
+        return 0;
+    }
+
+    public double addLength(Length first, Length second) {
+        return getLength( first ) + getLength( second );
+    }
+
 }
