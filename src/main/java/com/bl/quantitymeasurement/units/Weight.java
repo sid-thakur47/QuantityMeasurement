@@ -17,6 +17,9 @@ public class Weight extends QuantityMeasurement implements QuantityMeasurementCo
         if (this.unit.equals( Unit.KILO_GRAM ) && (measurement.unit.equals( Unit.GRAMS ))) {
             return this.value * KILOGRAM_GRAM == measurement.value;
         }
+        if (this.unit.equals( Unit.KILO_GRAM ) && (measurement.unit.equals( Unit.TON ))) {
+            return this.value / TON_KILO_GRAM == measurement.value;
+        }
         return false;
     }
 }
