@@ -2,6 +2,7 @@ package com.bl.quantitymeasurement;
 
 import com.bl.quantitymeasurement.constant.QuantityMeasurementConstant;
 import com.bl.quantitymeasurement.units.Length;
+import com.bl.quantitymeasurement.units.Volume;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -145,5 +146,13 @@ public class QuantityMeasurementTest implements QuantityMeasurementConstant {
         Length centiMeter = new Length( Unit.CENTIMETER, 5 );
         double addition = length.addLength( inch, centiMeter );
         Assert.assertEquals( 6, addition, 0.0 );
+    }
+
+    @Test
+    public void givenOneGallonAndLiter_WhenCompared_ShouldReturnTrue() {
+        Volume gallon = new Volume( Unit.GALLON, 1 );
+        Volume liter = new Volume( Unit.LITRES, 3.78 );
+        boolean compare = gallon.compareUnits( liter );
+        Assert.assertTrue( compare );
     }
 }
