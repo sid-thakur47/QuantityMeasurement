@@ -235,4 +235,11 @@ public class QuantityMeasurementTest implements QuantityMeasurementConstant {
         Assert.assertTrue( compare );
     }
 
+    @Test
+    public void givenOneTonAndMillLitre_WhenAdded_ShouldReturnTrue() {
+        Weight ton = new Weight( Unit.TON, 1 );
+        Weight grams = new Weight( Unit.GRAMS, 1000 );
+        double addition = weight.addWeight( ton, grams );
+        Assert.assertEquals( 1001, addition, 0.0 );
+    }
 }
