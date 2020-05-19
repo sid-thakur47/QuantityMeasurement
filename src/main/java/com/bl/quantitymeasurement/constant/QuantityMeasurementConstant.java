@@ -6,8 +6,9 @@ public interface QuantityMeasurementConstant {
     double YARD_TO_INCH = 36;
     double INCH_CENTIMETER = 2.5;
     double GALLON_LITER = 3.78;
+    double  LITER_MILLILITER=1000;
 
     enum Unit {
-        INCH, FEET, YARD,CENTIMETER,GALLON,LITRES
+        INCH, FEET, YARD,CENTIMETER,GALLON,LITRES,MILLILITERS
     }
 }

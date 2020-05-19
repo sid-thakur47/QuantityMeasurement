@@ -16,6 +16,9 @@ public class Volume extends QuantityMeasurement implements QuantityMeasurementCo
         if (this.unit.equals( Unit.GALLON ) && (measurement.unit.equals( Unit.LITRES ))) {
             return this.value * GALLON_LITER == measurement.value;
         }
+        if (this.unit.equals( Unit.LITRES ) && (measurement.unit.equals( Unit.MILLILITERS ))) {
+            return this.value * LITER_MILLILITER == measurement.value;
+        }
         return false;
     }
 }
