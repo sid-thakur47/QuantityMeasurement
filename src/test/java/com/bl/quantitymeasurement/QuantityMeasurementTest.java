@@ -155,4 +155,11 @@ public class QuantityMeasurementTest implements QuantityMeasurementConstant {
         boolean compare = gallon.compareUnits( liter );
         Assert.assertTrue( compare );
     }
+    @Test
+    public void givenOneLitreAndMilliLitre_WhenCompared_ShouldReturnTrue() {
+        Volume litre = new Volume( Unit.LITRES, 2 );
+        Volume milliLitre = new Volume( Unit.MILLILITERS, 2000 );
+        boolean compare = litre.compareUnits( milliLitre );
+        Assert.assertTrue( compare );
+    }
 }
