@@ -170,4 +170,11 @@ public class QuantityMeasurementTest implements QuantityMeasurementConstant {
         double addition = volume.addVolume( gallon, litre );
         Assert.assertEquals( 7.56, addition, .0 );
     }
+    @Test
+    public void givenOneLitreAndMillLitre_WhenAdded_ShouldReturnTrue() {
+        Volume litre = new Volume( Unit.LITRES, 1 );
+        Volume millLitre = new Volume( Unit.MILLILITERS, 1000 );
+        double addition = volume.addVolume( litre, millLitre );
+        Assert.assertEquals( 2, addition, 0.0 );
+    }
 }
