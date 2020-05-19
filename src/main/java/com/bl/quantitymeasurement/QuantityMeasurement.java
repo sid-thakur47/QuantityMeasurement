@@ -1,9 +1,19 @@
+/**********************************************************
+ * @Purpose: Super class to use common methods
+ * @Author: Siddhesh Thakur
+ * @Date: 19/05/2020
+ **********************************************************/
+
 package com.bl.quantitymeasurement;
 
 import com.bl.quantitymeasurement.constant.QuantityMeasurementConstant;
 
 public class QuantityMeasurement implements QuantityMeasurementConstant {
 
+/**+
+ *  unit to differentiate between units
+ *  value to Initialize value to specific unit
+ */
     public Unit unit;
     public double value;
 

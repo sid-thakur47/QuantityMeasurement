@@ -5,6 +5,10 @@ import com.bl.quantitymeasurement.constant.QuantityMeasurementConstant;
 
 public class Weight extends QuantityMeasurement implements QuantityMeasurementConstant {
 
+/**
+ *  unit to differentiate between units
+ *  value to Initialize value to specific unit
+ */
     public Weight(Unit unit, double value) {
         super( unit, value );
     }
@@ -12,8 +16,8 @@ public class Weight extends QuantityMeasurement implements QuantityMeasurementCo
     public Weight() {
     }
 
+    //Comparing Weight Units
     public boolean compareUnits(Weight measurement) {
-
         if (this.unit.equals( Unit.KILO_GRAM ) && (measurement.unit.equals( Unit.GRAMS ))) {
             return this.value * KILOGRAM_GRAM == measurement.value;
         }
@@ -23,6 +27,7 @@ public class Weight extends QuantityMeasurement implements QuantityMeasurementCo
         return false;
     }
 
+    //Get Weight for Addition
     public double getWeight(Weight measurement) {
         switch (measurement.unit) {
             case KILO_GRAM:
@@ -35,6 +40,7 @@ public class Weight extends QuantityMeasurement implements QuantityMeasurementCo
         return 0;
     }
 
+    //Addition of two units
     public double addWeight(Weight first, Weight second) {
         return getWeight( first ) + getWeight( second );
     }

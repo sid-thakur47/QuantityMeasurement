@@ -5,6 +5,10 @@ import com.bl.quantitymeasurement.constant.QuantityMeasurementConstant;
 
 public class Length extends QuantityMeasurement implements QuantityMeasurementConstant {
 
+/**
+ *  unit: to differentiate between units
+ *  value: to Initialize value to specific unit
+ */
     public Length(Unit unit, double value) {
         super( unit, value );
     }
@@ -12,6 +16,7 @@ public class Length extends QuantityMeasurement implements QuantityMeasurementCo
     public Length() {
     }
 
+    //Compare Units of Length
     public boolean compareUnits(Length measurement) {
 
         if (this.unit.equals( Unit.FEET ) && (measurement.unit.equals( Unit.INCH ))) {
@@ -29,7 +34,9 @@ public class Length extends QuantityMeasurement implements QuantityMeasurementCo
         return false;
     }
 
+    //Get Units for Addition
     public double getLength(Length measurement) {
+
         switch (measurement.unit) {
             case INCH:
                 return measurement.value;
@@ -40,7 +47,7 @@ public class Length extends QuantityMeasurement implements QuantityMeasurementCo
         }
         return 0;
     }
-
+    //Addition of Two unit
     public double addLength(Length first, Length second) {
         return getLength( first ) + getLength( second );
     }
