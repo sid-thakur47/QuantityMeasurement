@@ -22,4 +22,20 @@ public class Weight extends QuantityMeasurement implements QuantityMeasurementCo
         }
         return false;
     }
+
+    public double getWeight(Weight measurement) {
+        switch (measurement.unit) {
+            case KILO_GRAM:
+                return measurement.value;
+            case GRAMS:
+                return measurement.value / KILOGRAM_GRAM;
+            case TON:
+                return measurement.value * KILOGRAM_GRAM;
+        }
+        return 0;
+    }
+
+    public double addWeight(Weight first, Weight second) {
+        return getWeight( first ) + getWeight( second );
+    }
 }
