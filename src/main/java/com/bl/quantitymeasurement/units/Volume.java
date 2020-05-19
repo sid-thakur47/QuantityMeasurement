@@ -21,4 +21,21 @@ public class Volume extends QuantityMeasurement implements QuantityMeasurementCo
         }
         return false;
     }
+
+    public double getVolume(Volume measurement) {
+        switch (measurement.unit) {
+            case GALLON:
+                return measurement.value * GALLON_LITER;
+            case LITRES:
+                return measurement.value;
+            case MILLILITERS:
+                return measurement.value / LITER_MILLILITER;
+        }
+        return 0;
+    }
+
+    public double addVolume(Volume first, Volume second) {
+        return getVolume( first ) + getVolume( second );
+    }
+
 }
