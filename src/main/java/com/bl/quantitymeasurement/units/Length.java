@@ -13,6 +13,7 @@ public class Length extends QuantityMeasurement implements QuantityMeasurementCo
     }
 
     public boolean compareUnits(Length measurement) {
+
         if (this.unit.equals( Unit.FEET ) && (measurement.unit.equals( Unit.INCH ))) {
             return this.value * FEET_INCH == measurement.value;
         }
@@ -27,6 +28,7 @@ public class Length extends QuantityMeasurement implements QuantityMeasurementCo
         }
         return false;
     }
+
     public double getLength(Length measurement) {
         switch (measurement.unit) {
             case INCH:
@@ -42,5 +44,4 @@ public class Length extends QuantityMeasurement implements QuantityMeasurementCo
     public double addLength(Length first, Length second) {
         return getLength( first ) + getLength( second );
     }
-
 }

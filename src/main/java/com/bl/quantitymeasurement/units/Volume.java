@@ -37,5 +37,4 @@ public class Volume extends QuantityMeasurement implements QuantityMeasurementCo
     public double addVolume(Volume first, Volume second) {
         return getVolume( first ) + getVolume( second );
     }
-
 }
