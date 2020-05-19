@@ -125,4 +125,11 @@ public class QuantityMeasurementTest implements QuantityMeasurementConstant {
         boolean compare = inch.compareUnits( centiMeter );
         Assert.assertTrue( compare );
     }
+    @Test
+    public void givenInchAndAnd_WhenAdded_ShouldReturnTrue() {
+        Length inch = new Length( Unit.INCH, 2 );
+        Length inch2 = new Length( Unit.INCH, 2 );
+        double addition = length.addLength( inch, inch2 );
+        Assert.assertEquals( 4, addition, 0.0 );
+    }
 }
